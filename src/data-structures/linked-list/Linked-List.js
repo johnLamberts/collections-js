@@ -40,11 +40,47 @@ class LinkedList {
 
     return this;
   }
+
+  insert(value, index) {
+    const rawIndex = index < 0 ? 0 : index;
+
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      let count = 1;
+      let currentNode = this.head;
+
+      const newNode = new ListNode(value);
+
+      while (currentNode) {
+        if (count === index) break;
+
+        currentNode = currentNode.next;
+        count += 1;
+      }
+
+      if (currentNode) {
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+      } else {
+        if (this.tail) {
+          this.tail.next = newNode;
+          this.tail = newNode;
+        } else {
+          this.head = newNode;
+          this.tail = newNode;
+        }
+      }
+    }
+
+    return this;
+  }
 }
 
 const newList = new LinkedList();
 newList.prepend(10);
+newList.insert(90, 0);
 newList.append(23);
 console.log(
-  `Head node: ${newList.head.next.value} ------- Tail Node: ${newList.tail.value}`
+  `Head node: ${newList.head.value} ------- Tail Node: ${newList.tail.value}`
 );
