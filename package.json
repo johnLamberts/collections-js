@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "![alt text](image.png)",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "coverage": "npm run test -- --coverage",

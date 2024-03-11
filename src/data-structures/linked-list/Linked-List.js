@@ -1,6 +1,5 @@
-import ListNode from "./ListNode";
-
-export default class LinkedList {
+const ListNode = require("./ListNode");
+class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -17,9 +16,10 @@ export default class LinkedList {
     this.head = newNode;
 
     //if there is no tail yet, then let's make new node a tail
-    if (!this.tail) this.tail = newNode;
+    if (!this.tail) {
+      this.tail = newNode;
+    }
 
-    console.log(value, this);
     return this;
   }
 
@@ -27,9 +27,24 @@ export default class LinkedList {
    * @param {*} value
    * @return {LinkedList}
    */
-  append(value) {}
+  append(value) {
+    const newNode = new ListNode(value);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+
+    return this;
+  }
 }
 
 const newList = new LinkedList();
-
-console.log(newList.prepend(10));
+newList.prepend(10);
+newList.append(23);
+console.log(
+  `Head node: ${newList.head.next.value} ------- Tail Node: ${newList.tail.value}`
+);
