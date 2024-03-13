@@ -75,12 +75,8 @@ class LinkedList {
 
     return this;
   }
-}
 
-const newList = new LinkedList();
-newList.prepend(10);
-newList.insert(90, 0);
-newList.append(23);
-console.log(
-  `Head node: ${newList.head.value} ------- Tail Node: ${newList.tail.value}`
-);
+  delete(value) {
+    if (!this.head) return null;
+  }
+}
