@@ -80,3 +80,5 @@ class LinkedList {
     if (!this.head) return null;
   }
 }
+
+module.exports = LinkedList;
