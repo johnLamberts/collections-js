@@ -16,3 +16,5 @@ const binarySearch = (nums, target) => {
 
   return -1;
 };
+
+export default binarySearch;
