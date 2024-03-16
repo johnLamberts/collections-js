@@ -11,3 +11,5 @@ const isPalindrome = (s) => {
 
   return true;
 };
+
+export default isPalindrome;
